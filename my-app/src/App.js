@@ -1,5 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { youtubeData } from "./youtubeData.js";
+import React, { Component } from "react";
 
 // parent component
 let AppHeader = () => {
@@ -21,34 +23,27 @@ let AppHeader = () => {
   );
 };
 
-let YoutubeItem = (props) => {
-  return (
-    <div className="youtube-item">
-      <div className="youtube-image">
-        <img
-        src={props.avatar}
-          alt=""
-          className="youtube-avatar"
-        ></img>
 
-        <div className="youtube-info">
-          <h3 className="youtube-title">{props.title || 'Title is Empty'}</h3>
-          <h4 className="youtube-author">{props.author || 'Author is Empty'}</h4>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 //children component
 function App() {
   return (
-    <div className="App">
+    // <div className="youtube-list">
+    //   <YoutubeItem avatar = "https://images.unsplash.com/photo-1662796653457-8721078fd863?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" image ="https://images.unsplash.com/photo-1662125502527-bb106378d560?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"></YoutubeItem>
+    //   <YoutubeItem avatar = "https://images.unsplash.com/photo-1662759508448-b5a1df24d414?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80" image = "https://images.unsplash.com/photo-1662535800386-271f33a9343a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"></YoutubeItem>
+    //   <YoutubeItem avatar = "https://images.unsplash.com/photo-1662413915495-ff4a9f53f650?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=617&q=80" image = "https://images.unsplash.com/photo-1661257454984-260701259b64?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"></YoutubeItem>
+    // </div>
+
     <div className="youtube-list">
-      <YoutubeItem title= "title1" author = "HaiN1" avatar="https://images.unsplash.com/photo-1662969351302-86633de54a1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8Q0R3dXdYSkFiRXd8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"></YoutubeItem>
-      <YoutubeItem title= "titl2" author="HaiNguyen" avatar="https://images.unsplash.com/photo-1663542803736-f9f71f03539d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8Q0R3dXdYSkFiRXd8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"></YoutubeItem>
-    <YoutubeItem avatar="https://images.unsplash.com/photo-1662796653457-8721078fd863?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDExfENEd3V3WEpBYkV3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"></YoutubeItem>
-    </div>
+      {youtubeData.map((item) => (
+        <YoutubeItem
+          key={item.id}
+          avatar={item.avatar == "" ? "https://i.stack.imgur.com/l60Hf.png" : item.avatar} 
+          image={item.image}
+          title = {item.title}
+          author = {item.author}
+        ></YoutubeItem>
+      ))}
     </div>
   );
 }
