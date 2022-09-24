@@ -1,5 +1,5 @@
 import React from "react";
-import { youtubeData } from "../Data";
+import { youtubeData } from "../../Data";
 import { YoutubeItem } from "./YoutubeItem";
 
 export let YoutubeList = (props) => {

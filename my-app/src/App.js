@@ -1,8 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { Component } from "react";
-import { ToggleStateFull } from "./component/state/Toggle";
 import Game from "./component/tiktoktoe/Game";
+
 
 
 //children component
