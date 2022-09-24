@@ -1,6 +1,6 @@
 import React from "react";
 
-let YoutubeItem = (props) => {
+export let YoutubeItem = (props) => {
     return (
       <div className="youtube-item">
         <div className="youtube-header">
